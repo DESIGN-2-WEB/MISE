@@ -1,0 +1,231 @@
+/* ============================================================
+   PRINT
+   - Any page prints without the site header, footer or controls.
+   - With a recipe dialog open, only the recipe is printed.
+   - The planner page prints the week as a simple list.
+   ============================================================ */
+@media print {
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+    --clr-bg: #fff;
+    --clr-surface: #fff;
+    --clr-surface2: #fff;
+    --clr-surface3: #eee;
+    --clr-border: #d4d4d4;
+    --clr-border2: #bdbdbd;
+    --clr-text: #000;
+    --clr-text-soft: #111;
+    --clr-text-muted: #444;
+    --clr-primary-light: #9a3412;
+    --gradient-card: none;
+  }
+
+  @page {
+    margin: 16mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+  .print-only {
+    display: block;
+  }
+  .skip-link,
+  .toast,
+  .nav,
+  .footer,
+  .no-print {
+    display: none !important;
+  }
+  .page-header {
+    padding: 0 0 12pt;
+    background: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .page-header__title {
+    margin-bottom: 4pt;
+    font-size: 22pt;
+  }
+  .page-header__eyebrow,
+  .page-header__description {
+    display: none;
+  }
+  .section,
+  .section--tight {
+    padding: 12pt 0;
+  }
+  .print-brand {
+    margin-bottom: 8pt;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+  }
+
+  /* ─── Recipe ─── */
+  html:has(.modal[open]) main {
+    display: none !important;
+  }
+  .modal[open] {
+    position: static;
+    display: block;
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+  }
+  .modal::backdrop {
+    background: none;
+  }
+  .modal__panel {
+    max-height: none;
+    overflow: visible;
+  }
+  .modal__close,
+  .recipe-detail__actions,
+  .plan-chooser,
+  .recipe-detail__hero,
+  .ingredient__img {
+    display: none !important;
+  }
+  .recipe-detail {
+    margin-top: 0;
+  }
+  .recipe-detail__body {
+    padding: 0;
+  }
+  .recipe-detail__title {
+    margin-bottom: 12pt;
+    font-size: 24pt;
+  }
+  .recipe-detail__tags .badge {
+    border: 1px solid #999;
+    background: none;
+    color: #333;
+  }
+  .recipe-detail__facts {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8pt;
+    margin-bottom: 18pt;
+  }
+  .fact {
+    padding: 6pt 8pt;
+    border: 1px solid #ccc;
+    border-radius: 6pt;
+  }
+  .fact__value {
+    font-size: 12pt;
+    color: #000;
+  }
+  .recipe-detail__columns {
+    grid-template-columns: 1fr 1.6fr;
+    gap: 24pt;
+  }
+  .recipe-detail__heading svg {
+    display: none;
+  }
+  .ingredient-list {
+    gap: 0;
+  }
+  .ingredient {
+    padding: 4pt 0;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0;
+    background: none;
+    break-inside: avoid;
+  }
+  .ingredient.is-checked {
+    opacity: 1;
+  }
+  .ingredient.is-checked .ingredient__name {
+    text-decoration: none;
+  }
+  .ingredient__name,
+  .ingredient__measure {
+    font-size: 10.5pt;
+    color: #000;
+  }
+  .step-list {
+    gap: 10pt;
+  }
+  .step {
+    gap: 10pt;
+    break-inside: avoid;
+  }
+  .step__number {
+    width: 20pt;
+    height: 20pt;
+    border: 1px solid #000;
+    background: none;
+    font-size: 10pt;
+    color: #000;
+  }
+  .step__text {
+    padding-top: 1pt;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000;
+  }
+  .print-source {
+    margin-top: 18pt;
+    font-size: 9pt;
+    color: #444;
+    word-break: break-all;
+  }
+
+  /* ─── Weekly meal plan ─── */
+  .planner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .planner-day {
+    flex-direction: row;
+    gap: 16pt;
+    min-height: 0;
+    padding: 10pt 0;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    break-inside: avoid;
+  }
+  .planner-day.is-today {
+    border-color: #ccc;
+  }
+  .planner-day__header {
+    flex-shrink: 0;
+    width: 90pt;
+  }
+  .planner-day__today,
+  .planned-meal__thumb {
+    display: none !important;
+  }
+  .planned-meal {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .planner-day__meals {
+    gap: 3pt;
+  }
+  .planned-meal__title {
+    font-size: 11pt;
+    font-weight: 500;
+  }
+}
