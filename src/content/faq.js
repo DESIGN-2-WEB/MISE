@@ -27,7 +27,7 @@ export const FAQ = [
   {
     question: 'Can I install Mise on my phone or computer?',
     answer:
-      'Yes. Use "Add to Home Screen" on iPhone or Android, or the install button in the address bar of Chrome or Edge, and Mise opens like an app.',
+      'Yes. Tap "Install app" in the menu on your phone or at the bottom of any page, or use the install button in the address bar of Chrome or Edge. On iPhone and iPad, tap the Share button and then "Add to Home Screen". Mise then opens like an app, and the pages and recipes you have already opened keep working without an internet connection.',
   },
   {
     question: 'Does Mise show nutrition or allergy information?',

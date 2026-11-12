@@ -23,7 +23,7 @@ const SECTIONS = [
     content: (
       <>
         <p>
-          To remember your choices, Mise uses your browser&apos;s local storage. This information stays on your device
+          To remember your choices, Mise uses your browser&apos;s local storage and cache. This information stays on your device
           and is never sent to us:
         </p>
         <ul>
@@ -38,6 +38,11 @@ const SECTIONS = [
           </li>
           <li>
             <strong>Theme:</strong> whether you chose the light or dark theme.
+          </li>
+          <li>
+            <strong>Offline copies:</strong> Mise&apos;s pages and code, and the recipe details, photos and fonts you
+            have loaded, are kept in your browser&apos;s cache so the site loads quickly, can be installed as an app and
+            works without a connection.
           </li>
         </ul>
         <p>

@@ -248,3 +248,55 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ─── "Install app" help for iPhone and iPad ─── */
+.modal--install {
+  width: min(92vw, 440px);
+}
+.install-help {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 24px 24px;
+}
+.install-help__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.install-help__title {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-2xl);
+}
+.install-help__intro {
+  color: var(--clr-text-muted);
+}
+.install-help__steps {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+.install-help__step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+}
+.install-help__icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--clr-primary-light);
+}
+.install-help__done {
+  align-self: stretch;
+}

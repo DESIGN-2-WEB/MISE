@@ -41,7 +41,12 @@ header (linking to the browsing pages) and the footer (About, Contact and the le
 - **Cooking mode** – full screen, one step at a time, one-tap timers taken from the step text,
   and the screen stays awake.
 - **Saved recipes and history** – stored in the browser, synced across open tabs, no account.
-- **Light and dark themes**, print-friendly recipes, and installable as an app.
+- **Install as an app** – an "Install app" button (phone menu, footer and entrance screen) opens
+  the browser's install prompt on Android, Chrome and Edge, and shows the "Add to Home Screen"
+  steps on iPhone and iPad.
+- **Works offline** – a service worker keeps the pages, app code and the recipes and photos you
+  have opened, so cooking mode keeps working with no signal.
+- **Light and dark themes** and print-friendly recipes.
 - **Accessible** – one `<h1>` per page, skip link, keyboard support, focus management, visible
   focus states and reduced-motion support.
 
@@ -71,7 +76,7 @@ npm run dev
 | Script            | What it does                                                    |
 | ----------------- | --------------------------------------------------------------- |
 | `npm run dev`     | Start the dev server with hot reload                             |
-| `npm run build`   | Build, prerender every page, write sitemap.xml and robots.txt    |
+| `npm run build`   | Build, prerender every page, write sitemap.xml, robots.txt and the service worker's offline file list |
 | `npm run preview` | Serve the built site the way a static host does                  |
 | `npm run lint`    | Lint the project with Oxlint                                     |
 | `npm run icons`   | Regenerate all app icons (Windows PowerShell)                    |
@@ -92,15 +97,21 @@ a governing-law section if you need one.
 Deploy the `dist/` folder to any static host. Each route is a real HTML file
 (`dist/about/index.html`), and `dist/404.html` should be configured as the not-found page.
 
+The site must be served over HTTPS for the service worker, and so for installing the app and
+offline use (`localhost` also works, for `npm run preview`). Serve `/sw.js` with
+`Cache-Control: no-cache` so browsers pick up each new release. The service worker is only
+registered in production builds, so `npm run dev` never serves stale code; test offline and
+install with `npm run build` and `npm run preview`.
+
 ## Project structure
 
 ```
 docs/                       # Project log and development roadmap
-public/                     # Icons, social image, web app manifest
+public/                     # Icons, social image, web app manifest, service worker (sw.js)
 resources/app-icon.png      # Source artwork for the app icons
 scripts/
 ├── generate-icons.ps1      # Builds the icon set from the source artwork
-└── prerender.mjs           # Writes static HTML, sitemap.xml and robots.txt after the build
+└── prerender.mjs           # Writes static HTML, sitemap.xml, robots.txt and the offline file list
 src/
 ├── api/mealdb.js           # TheMealDB client: caching, rate limiting, combined search
 ├── components/

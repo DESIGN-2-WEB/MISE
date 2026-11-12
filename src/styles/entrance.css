@@ -97,6 +97,17 @@
 .entrance__links a:hover {
   color: var(--clr-primary-light);
 }
+.entrance__install {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--clr-primary-light);
+}
+.entrance__install:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ─── Dish collage ─── */
 .entrance__visual {

@@ -57,7 +57,7 @@ and publishing them as static pages.
 
 | # | Item | Priority | Size | Done when |
 | - | ---- | -------- | ---- | --------- |
-| 3.1 | **Offline support** with a service worker. Cache the app, plus the details and photos of saved recipes, so cooking mode works in a kitchen with no signal. | Should | M | A saved recipe opens in cooking mode in airplane mode |
+| 3.1 | **Offline support** with a service worker. Cache the app, plus the details and photos of saved recipes, so cooking mode works in a kitchen with no signal. *Done 12 Nov 2026 and checked with the browser offline: a recipe saved from search results opens in cooking mode. Still to do: try it in airplane mode on a real phone (part of 0.7). A recipe saved on another visit long ago may have dropped out of the cache (it keeps the latest 500 data responses).* | Should | M | A saved recipe opens in cooking mode in airplane mode |
 | 3.2 | **Update prompt** ("A new version is available") when the site changes. | Could | S | The prompt appears after a deploy |
 | 3.3 | **Performance:** check icon imports in the 69 KB main script, preload the entrance photos, and serve smaller images on phones. | Could | S | Lighthouse performance stays at 90 or above on a mid-range phone |
 | 3.4 | **Cooking mode extras:** several timers on screen at once, and optional voice control ("next step"). | Could | M | Two timers run side by side |

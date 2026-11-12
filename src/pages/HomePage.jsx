@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, Sparkles, Timer } from 'lucide-react';
+import InstallAppButton from '../components/layout/InstallAppButton';
 import ThemeToggle from '../components/layout/ThemeToggle';
 import { CATEGORIES, CUISINES } from '../constants/catalog';
 import { SITE } from '../constants/site';
@@ -108,6 +109,7 @@ function HomePage() {
             {link.label}
           </Link>
         ))}
+        <InstallAppButton className="entrance__install" iconSize={15} />
       </nav>
     </section>
   );

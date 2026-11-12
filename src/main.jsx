@@ -2,7 +2,11 @@ import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App.jsx';
 import { preloadRoute } from './routes';
+import { setUpPwa } from './utils/pwa';
 import './styles/index.css';
+
+// Listen for the browser's install prompt straight away: it can fire before the page has hydrated.
+setUpPwa();
 
 const container = document.getElementById('root');
 const app = (

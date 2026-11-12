@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import { useKitchen } from '../../context/kitchen';
+import { useCanInstall } from '../../hooks/useInstallState';
 import { useLocation } from '../../router/context';
 import { Link, NavLink } from '../../router/Link';
 import { focusSearchInput } from '../../utils/dom';
+import InstallAppButton from './InstallAppButton';
 import ThemeToggle from './ThemeToggle';
 
 // About, Contact and the legal pages live in the footer, as on most sites.
@@ -21,6 +23,7 @@ function SiteHeader() {
   const { pathname, key } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const canInstall = useCanInstall();
   const counts = { saved: favorites.length, planned: plannedCount };
 
   useEffect(() => {
@@ -68,6 +71,12 @@ function SiteHeader() {
                 </li>
               );
             })}
+            {/* Phones only: desktop browsers offer install in the address bar, and the footer has a button. */}
+            {canInstall && (
+              <li className="nav__install-item">
+                <InstallAppButton className="nav__link nav__install" iconSize={18} />
+              </li>
+            )}
           </ul>
         </nav>
 

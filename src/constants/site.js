@@ -24,7 +24,7 @@ export const SITE = {
 export const DATA_SOURCE = { name: 'TheMealDB', url: 'https://www.themealdb.com' };
 
 /** Shown at the top of the privacy policy and terms of use. */
-export const LEGAL_LAST_UPDATED = { iso: '2026-09-17', label: '17 September 2026' };
+export const LEGAL_LAST_UPDATED = { iso: '2026-11-12', label: '12 November 2026' };
 
 /** Settings still using placeholders; the build prints a warning for each. */
 export const SITE_CONFIG_WARNINGS = [

@@ -2,6 +2,7 @@ import { getCuisineLabel, POPULAR_CUISINES } from '../../constants/catalog';
 import { DATA_SOURCE, SITE } from '../../constants/site';
 import { recipesHref } from '../../hooks/useSearchCriteria';
 import { Link } from '../../router/Link';
+import InstallAppButton from './InstallAppButton';
 
 const FOOTER_COLUMNS = [
   {
@@ -54,6 +55,7 @@ function SiteFooter() {
           <p className="footer__tagline">
             {SITE.tagline} A free recipe finder with a weekly meal planner and step-by-step cooking mode.
           </p>
+          <InstallAppButton className="btn btn--ghost btn--sm footer__install" />
         </div>
 
         <nav className="footer__links" aria-label="Footer">
