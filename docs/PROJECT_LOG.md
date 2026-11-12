@@ -21,6 +21,38 @@ the legal pages reviewed, and deploy. See Phase 0 of the [roadmap](ROADMAP.md#ph
 
 ## Log
 
+### 12 Nov 2026 — Dead code removed
+
+- Checked every page for errors (none), then searched for files, exports, CSS classes and CSS
+  variables that nothing uses.
+- Removed: `CuisineList.jsx` (the Cuisines page has its own list), the `.cuisine-list`,
+  `.text-gradient` and `.section-footer` styles, and the `--clr-accent` and `--font-size-6xl`
+  tokens.
+- The dropdown arrow image was copied into two stylesheets; it is now one `--icon-chevron` token.
+- The iPhone install instructions load only when opened (`IosInstallHelp.jsx`), so they no longer
+  add to the main script for every visitor.
+
+### 12 Nov 2026 — Install as an app, and offline use
+
+- **"Install app" button** in the phone menu, the footer and on the entrance screen. On Android,
+  Chrome and Edge it opens the browser's install prompt. iPhone and iPad have no prompt, so it
+  shows the Share → "Add to Home Screen" steps instead. It is hidden where installing isn't
+  possible and once Mise is running as an installed app.
+- **Service worker** (`public/sw.js`): pages fall back to a saved copy offline, app code and icons
+  are saved at install, recipe data is network first with the last copy as a fallback, and photos
+  and fonts are cached. The build fills in the exact file list and a version, so each release
+  replaces the old copy. Only registered in production builds.
+- Search results already contain full recipe details, so the service worker also files each
+  recipe under its lookup address. Without this, a recipe saved from search results couldn't be
+  opened offline.
+- Cache lookups ignore `Vary: Origin`: Vite loads scripts and styles with `crossorigin`, and
+  hosts that send `Vary: Origin` would otherwise make the saved app code unusable offline.
+- Checked with the browser offline: every page loads, the 404 page shows for unknown addresses,
+  and a recipe saved from search results opens in cooking mode. The install prompt and the iPhone
+  instructions were checked by simulating each browser.
+- Updated the FAQ answer about installing, and the Privacy Policy now describes the offline copies
+  kept in the browser cache (last updated 12 November 2026).
+
 ### 11 Nov 2026 — Broken links fixed
 
 - **Fixed:** the header menu, footer, "Find a recipe" button and the "Browse recipes" buttons on

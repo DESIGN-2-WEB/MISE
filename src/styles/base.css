@@ -9,10 +9,12 @@
   --clr-border: rgba(255, 255, 255, 0.07);
   --clr-border2: rgba(255, 255, 255, 0.12);
 
+  /* Down arrow for <select> fields */
+  --icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239a9aab' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
   --clr-primary: #f97316;
   --clr-primary-light: #fb923c;
   --clr-primary-dark: #ea580c;
-  --clr-accent: #f59e0b;
   --clr-danger: #f87171;
   --clr-danger-text: #fca5a5;
   --clr-success: #34d399;
@@ -57,7 +59,6 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-4xl: 2.75rem;
-  --font-size-6xl: 5rem;
 
   --nav-h: 70px;
 }
@@ -201,13 +202,6 @@ fieldset {
 
 main:focus {
   outline: none;
-}
-
-.text-gradient {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .visually-hidden {

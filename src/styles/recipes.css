@@ -209,14 +209,6 @@
   font-weight: 700;
 }
 
-.cuisine-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  max-width: 1000px;
-  margin: 32px auto 0;
-}
 @media (max-width: 640px) {
   .categories-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
